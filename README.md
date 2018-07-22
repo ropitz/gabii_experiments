@@ -1,8 +1,10 @@
 # gabii_experiments
- * Access the Jupyter notebooks for different activities in the binder
- * Click 'launch binder' (go make a cup of tea and wait while the environment builds) and then click the notebook to get started. 
+
+ * Access the Jupyter notebooks in this repository to try out some experimental ways of exploring the stratigraphic matrix data from Gabii. These Jupyter notebooks are designed to allow you to run code in your web browser without installing any software. 
+ 
+ * How do you do it? Click 'launch binder' (go make a cup of coffee and wait while the software environment builds) and then click the notebook (.ipynb file) you want to use to get started. 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ropitz/gabii_experiments/master)
 
-# Matrix tools
-*  'gabii_matrix_web.ipynb' let's use search the stratigraphic relationships within Area C and visualize different parts of the matrix.
+# Notebooks for exploring Gabii Stratigraphic Matrix Data
+*  'gabii_matrix_web.ipynb' - This notebook is set up to explore stratigraphic relationships within Area C and visualize different parts of the matrix. This tool is complementary to the y-ed software currenly in use. 
