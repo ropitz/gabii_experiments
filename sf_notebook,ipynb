@@ -1,0 +1,108 @@
+{
+ "cells": [
+
+   "source": [
+    "# Now bring in all the basic Gabii special finds data as a table- descriptions, object types, IDs and the contexts from which they come.\n",
+    "# We've had a few special finds over the years.\n",
+    "sf_su = pd.read_csv(\"https://raw.github.com/ropitz/gabii_experiments/blob/master/all_sf.csv")\n",
+    "\n",
+    "# Print a preview of any table by typing it's name.\n",
+    "sf_su\n",
+    "\n",
+    "# SU is the context numbers and SF_ID is the special find ID number"
+   ]
+  },
+
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Let's start by getting an idea of all the types of special finds from the published house and how many of them there are.\n",
+    "\n",
+    "# Get all the finds from the table where the 'SU' number is between 1000 and 1999\n",
+    "AreaB = sf_su.loc[sf_su['SU'].between(1000, 1999, inclusive=True)]\n",
+    "\n",
+    "# Count how many of each 'SF_OBJECT_TYPE' (the type of object) there are and sort from most to least common.\n",
+    "pd.value_counts(AreaB['SF_OBJECT_TYPE'].values, sort=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Looks like there are 4 pins from the published house, which should include the bone hairpin from the publication. \n",
+    "# We can see what SUs they came from and a little more detail like this:\n",
+    "\n",
+    "# declare the types of things you want to have in your table\n",
+    "types = ['Pin']\n",
+    "\n",
+    "# select them from the big table, a bit like you selected the stratigraphic unit numbers you wanted to see.\n",
+    "B_Pins = AreaB.loc[sf_su['SF_OBJECT_TYPE'].isin(types)]\n",
+    "\n",
+    "# type the name of the table to print it out\n",
+    "B_Pins\n",
+    "\n",
+    "# First thing you learned from the data - the highlighted hairpin isn't the only pin..."
+   ]
+  },
+
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A bit of healthy archaeological suspicion should be creeping into your minds right now. Those are some really big layers in which the pins were found. Look up their SU numbers over in the database at https://gabii.cast.uark.edu/data/. They are big colluvial accumulations. Sadly finds from big colluvial accumulations are not generally all that meaningful, as they're unlikely to be in their original context. \n",
+    "\n",
+    "Reflect for a moment: how has looking at the published data changed your reading of the discussion of the special finds in the publication?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    " #Let's go a little further and look at the pins from across the whole site to see if the situation is similar.\n",
+    "types = ['Pin']\n",
+    "Pins = sf_su.loc[sf_su['SF_OBJECT_TYPE'].isin(types)]\n",
+    "Pins"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# You can see just above that there are 110 rows in the table, so 110 pins identified as special finds at Gabii.\n",
+    "# Now let's count up how many of these pins appear in each context (SU).\n",
+    "# This command will print out a list of the number of pins in each SU next to that SU number.\n",
+    "pd.value_counts(Pins['SU'].values, sort=True)"
+   ]
+  },
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
