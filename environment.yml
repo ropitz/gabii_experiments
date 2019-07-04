@@ -8,6 +8,5 @@ dependencies:
   - numpy
   - networkx
   - matplotlib
-  - json
   - requests
   - pysal
